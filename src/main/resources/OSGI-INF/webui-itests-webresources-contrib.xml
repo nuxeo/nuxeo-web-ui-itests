@@ -5,15 +5,15 @@
   <require>org.nuxeo.web.ui.resources</require>
 
   <extension target="org.nuxeo.ecm.platform.WebResources" point="resources">
-    <resource name="nuxeo-ftest.html" type="import">
-      <uri>/ui/ftest-sample/nuxeo-ftest.html</uri>
+    <resource name="nuxeo-itests.html" type="import">
+      <uri>/ui/nuxeo-itests.html</uri>
     </resource>
   </extension>
 
   <extension target="org.nuxeo.ecm.platform.WebResources" point="bundles">
     <bundle name="web-ui">
       <resources append="true">
-        <resource>nuxeo-ftest.html</resource>
+        <resource>nuxeo-itests.html</resource>
       </resources>
     </bundle>
   </extension>

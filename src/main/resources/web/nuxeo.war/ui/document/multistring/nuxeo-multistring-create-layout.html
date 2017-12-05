@@ -17,7 +17,9 @@
       label="Title" type="text">
     </nuxeo-input>
 
-    <nuxeo-data-table role="widget" items="{{document.properties.ft2:multiString}}" orderable="true" editable="true">
+    <nuxeo-data-table role="widget" items="{{document.properties.ft2:multiString}}"
+      name="multiString"
+      orderable="true" editable="true">
       <nuxeo-data-table-column name="Multi String">
         <template>
           [[item]]

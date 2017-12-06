@@ -28,7 +28,8 @@
 
       <nuxeo-data-table-form>
         <template>
-          <nuxeo-input value="{{item}}" label="Multi String" type="text"></nuxeo-input>
+          <nuxeo-input name="string" value="{{item}}" label="Multi String" type="text">
+          </nuxeo-input>
         </template>
       </nuxeo-data-table-form>
     </nuxeo-data-table>
@@ -46,7 +47,7 @@
            */
         document: {
           type: Object,
-        },
+        }
 
       }
     });

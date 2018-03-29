@@ -5,6 +5,7 @@ Bundle-ClassPath: .
 Bundle-Version: 1.0.0
 Bundle-Name: Nuxeo Web UI itests
 Nuxeo-Component: OSGI-INF/webui-itests-webresources-contrib.xml,
-  OSGI-INF/extensions.xml
+  OSGI-INF/extensions.xml,
+  OSGI-INF/oauth2-contrib.xml
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.nuxeo.web.ui.itests;singleton:=true

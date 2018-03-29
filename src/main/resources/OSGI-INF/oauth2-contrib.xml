@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.web.ui.itests.oauth2">
+
+  <require>org.nuxeo.ecm.platform.oauth2.providers.OAuth2ServiceProviderRegistry</require>
+
+  <extension target="org.nuxeo.ecm.platform.oauth2.providers.OAuth2ServiceProviderRegistry" point="providers">
+    <provider>
+      <name>test-oauth2-provider</name>
+      <description>Test OAuth2 Provider</description>
+      <class>org.nuxeo.ecm.platform.oauth2.providers.NuxeoOAuth2ServiceProvider</class>
+      <tokenServerURL>https://test.oauth2.provider/token</tokenServerURL>
+      <authorizationServerURL>https://test.oauth2.provider/authorization</authorizationServerURL>
+      <scope>https://test.oauth2.provider/scopes/scope0</scope>
+      <scope>https://test.oauth2.provider/scopes/scope1</scope>
+      <clientId>clientId</clientId>
+    </provider>
+  </extension>
+
+  <extension target="org.nuxeo.ecm.platform.oauth2.providers.OAuth2ServiceProviderRegistry" point="providers">
+    <provider>
+      <name>test-oauth2-provider-2</name>
+      <description>Test OAuth2 Provider 2</description>
+      <class>org.nuxeo.ecm.platform.oauth2.providers.NuxeoOAuth2ServiceProvider</class>
+      <tokenServerURL>https://test.oauth2.provider/token</tokenServerURL>
+      <authorizationServerURL>https://test.oauth2.provider/authorization</authorizationServerURL>
+      <scope>https://test.oauth2.provider/scopes/scope0</scope>
+      <scope>https://test.oauth2.provider/scopes/scope1</scope>
+      <clientId>clientId</clientId>
+    </provider>
+  </extension>
+
+
+  <extension target="org.nuxeo.ecm.directory.GenericDirectory"
+             point="directories">
+
+    <directory name="oauth2Tokens" remove="true">
+    </directory>
+
+    <directory name="oauth2Tokens" extends="template-directory">
+      <schema>oauth2Token</schema>
+      <createTablePolicy>always</createTablePolicy>
+      <dataFile>data/directories/oauth2token.csv</dataFile>
+      <idField>id</idField>
+      <autoincrementIdField>true</autoincrementIdField>
+      <permissions>
+        <permission name="Read">
+          <group>__Nobody__</group>
+        </permission>
+      </permissions>
+    </directory>
+
+    <directory name="oauth2Clients" remove="true">
+    </directory>
+
+    <directory name="oauth2Clients" extends="template-directory">
+      <schema>oauth2Client</schema>
+      <createTablePolicy>always</createTablePolicy>
+      <dataFile>data/directories/oauth2client.csv</dataFile>
+      <idField>id</idField>
+      <autoincrementIdField>true</autoincrementIdField>
+      <permissions>
+        <permission name="Read">
+          <group>__Nobody__</group>
+        </permission>
+      </permissions>
+    </directory>
+
+  </extension>
+
+</component>

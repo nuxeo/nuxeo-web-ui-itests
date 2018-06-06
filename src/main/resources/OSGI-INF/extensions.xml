@@ -7,6 +7,7 @@
     <schema name="ftest1" prefix="ft1" override="true" src="data/schemas/ftest1.xsd"/>
     <schema name="ftest2" prefix="ft2" override="true" src="data/schemas/ftest2.xsd"/>
     <schema name="ftest3" prefix="ft3" override="true" src="data/schemas/ftest3.xsd"/>
+    <schema name="test_search_pp" prefix="test_search_pp" override="true" src="data/schemas/test_search_pp.xsd"/>
   </extension>
   <extension target="org.nuxeo.ecm.core.schema.TypeService" point="doctype">
     <doctype name="DocSuggestion" extends="Document">
@@ -77,5 +78,27 @@
         <type>MultiString</type>
       </rule>
     </filter>
+  </extension>
+  <extension target="org.nuxeo.ecm.platform.query.api.PageProviderService" point="providers">
+    <genericPageProvider class="org.nuxeo.elasticsearch.provider.ElasticSearchNxqlPageProvider" name="test_search">
+      <trackUsage>true</trackUsage>
+      <property name="coreSession">#{documentManager}</property>
+      <whereClause>
+        <predicate parameter="dc:creator" operator="=">
+          <field schema="test_search_pp" name="dublincore_creator"/>
+        </predicate>
+        <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isVersion = 0 AND ecm:currentLifeCycleState != 'deleted'</fixedPart>
+      </whereClause>
+      <searchDocumentType>test_search_pp</searchDocumentType>
+      <pageSize>10</pageSize>
+    </genericPageProvider>
+  </extension>
+  <extension target="org.nuxeo.ecm.core.schema.TypeService" point="doctype">
+    <doctype name="test_search_pp" extends="Document">
+      <facet name="ContentViewDisplay"/>
+      <facet name="SavedSearch"/>
+      <facet name="HiddenInNavigation"/>
+      <schema name="test_search_pp"/>
+    </doctype>
   </extension>
 </component>

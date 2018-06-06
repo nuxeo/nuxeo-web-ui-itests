@@ -14,3 +14,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+<nuxeo-slot-content name="test_search" slot="DRAWER_ITEMS" order="34" >
+  <template>
+    <nuxeo-menu-icon label="Test Search" name="test_search" icon="icons:bug-report"></nuxeo-menu-icon>
+  </template>
+</nuxeo-slot-content>
+<nuxeo-slot-content name="test_search" slot="DRAWER_PAGES" >
+  <template>
+    <nuxeo-search-form provider="test_search" auto schemas="dublincore,common" search-name="test_search" page-size="40" selected-search-idx="0" name="test_search"></nuxeo-search-form>
+  </template>
+</nuxeo-slot-content>

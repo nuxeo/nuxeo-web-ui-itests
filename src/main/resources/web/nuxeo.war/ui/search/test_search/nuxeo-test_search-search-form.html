@@ -20,6 +20,15 @@
       </nuxeo-user-suggestion>
     </div>
 
+    <div role="widget">
+      <label>Creation</label>
+      <nuxeo-checkbox-aggregation placeholder="Creation"
+        data="[[aggregations.dc_created_agg]]"
+        value="{{params.dc_created_agg}}"
+        name="creation">
+      </nuxeo-checkbox-aggregation>
+    </div>
+
   </template>
 
   <script>

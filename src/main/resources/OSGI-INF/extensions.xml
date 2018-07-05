@@ -89,6 +89,16 @@
         </predicate>
         <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isVersion = 0 AND ecm:currentLifeCycleState != 'deleted'</fixedPart>
       </whereClause>
+      <aggregates>
+        <aggregate id="dc_created_agg" type="date_histogram" parameter="dc:created">
+          <field schema="default_search" name="dc_created_agg" />
+          <properties>
+            <property name="interval">month</property>
+            <property name="format">MM-yyyy</property>
+            <property name="order">key desc</property>
+          </properties>
+        </aggregate>
+      </aggregates>
       <searchDocumentType>test_search_pp</searchDocumentType>
       <pageSize>10</pageSize>
     </genericPageProvider>

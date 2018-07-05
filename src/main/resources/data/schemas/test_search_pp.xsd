@@ -33,4 +33,5 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="dublincore_creator" type="xs:string"/>
+  <xs:element name="dc_created_agg" type="nxs:stringList" />
 </xs:schema>

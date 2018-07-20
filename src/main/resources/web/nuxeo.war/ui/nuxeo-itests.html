@@ -24,3 +24,15 @@ limitations under the License.
     <nuxeo-search-form provider="test_search" auto schemas="dublincore,common" search-name="test_search" page-size="40" selected-search-idx="0" name="test_search"></nuxeo-search-form>
   </template>
 </nuxeo-slot-content>
+
+<nuxeo-slot-content name="manualSearchMenuButton" slot="DRAWER_ITEMS" order="35">
+  <template>
+    <nuxeo-menu-icon name="manualSearch" icon="icons:send" label="Manual Search"></nuxeo-menu-icon>
+  </template>
+</nuxeo-slot-content>
+<nuxeo-slot-content name="manualSearchMenuPage" slot="DRAWER_PAGES">
+  <template>
+    <nuxeo-search-form name="manualSearch" search-name="manual-default" page-size="10"
+                       provider="manual-default" schemas="dublincore,common,uid"></nuxeo-search-form>
+  </template>
+</nuxeo-slot-content>

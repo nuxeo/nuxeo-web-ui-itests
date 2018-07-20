@@ -92,6 +92,28 @@
       <searchDocumentType>test_search_pp</searchDocumentType>
       <pageSize>10</pageSize>
     </genericPageProvider>
+
+    <genericPageProvider class="org.nuxeo.elasticsearch.provider.ElasticSearchNxqlPageProvider" name="manual-default">
+      <trackUsage>true</trackUsage>
+      <property name="coreSession">#{documentManager}</property>
+      <whereClause>
+        <predicate parameter="ecm:fulltext" operator="FULLTEXT">
+          <field schema="test_search_pp" name="ecm_fulltext" />
+        </predicate>
+        <fixedPart>
+          ecm:primaryType NOT IN ('Domain', 'SectionRoot', 'TemplateRoot', 'WorkspaceRoot', 'Favorites')
+          AND ecm:mixinType != 'HiddenInNavigation'
+          AND NOT (ecm:mixinType = 'Collection' AND ecm:name = 'Locally Edited')
+          AND ecm:isVersion = 0
+          AND ecm:isTrashed = 0
+          AND ecm:parentId IS NOT NULL
+          AND SORTED_COLUMN IS NOT NULL
+        </fixedPart>
+      </whereClause>
+      <searchDocumentType>test_search_pp</searchDocumentType>
+      <pageSize>10</pageSize>
+    </genericPageProvider>
+
   </extension>
   <extension target="org.nuxeo.ecm.core.schema.TypeService" point="doctype">
     <doctype name="test_search_pp" extends="Document">

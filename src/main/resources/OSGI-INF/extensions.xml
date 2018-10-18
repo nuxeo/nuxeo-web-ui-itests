@@ -87,7 +87,7 @@
         <predicate parameter="dc:creator" operator="=">
           <field schema="test_search_pp" name="dublincore_creator"/>
         </predicate>
-        <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isVersion = 0 AND ecm:currentLifeCycleState != 'deleted'</fixedPart>
+        <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isVersion = 0 AND ecm:isTrashed = 0</fixedPart>
       </whereClause>
       <searchDocumentType>test_search_pp</searchDocumentType>
       <pageSize>10</pageSize>

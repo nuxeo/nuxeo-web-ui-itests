@@ -14,12 +14,12 @@
         min-height: calc(100vh - 130px);
       }
     </style>
-    <nuxeo-results name="test_search" nx-provider="[[nxProvider]]" selected-items="{{selectedItems}}" display-mode="list">
+    <nuxeo-results name="test_search" nx-provider="[[nxProvider]]" display-mode="list">
       <nuxeo-data-grid name="test_search" icon="nuxeo:view-thumbnails" class="results" empty-label="[[i18n('searchResults.noResults')]]"
                        sort-label="[[i18n('searchResults.sort.label')]]" selection-enabled display-quick-filters>
         <template>
-          <nuxeo-document-grid-thumbnail tabindex$="{{tabIndex}}" selected$="{{selected}}" doc="[[item]]" index="[[index]]"
-                                         on-navigate="_navigate" selected-items="[[selectedItems]]">
+          <nuxeo-document-grid-thumbnail tabindex$="{{tabIndex}}" selected$="{{selected}}" doc="[[item]]"
+                                         index="[[index]]" on-navigate="_navigate">
           </nuxeo-document-grid-thumbnail>
         </template>
       </nuxeo-data-grid>
@@ -58,8 +58,7 @@
                        display-sort sort-label="[[i18n('searchResults.sort.label')]]" sort-options="[[sortOptions]]"
                        display-navigation>
         <template>
-          <nuxeo-document-list-item selected$="{{selected}}" doc="[[item]]" index="[[index]]"
-                                    on-navigate="_navigate" selected-items="[[selectedItems]]">
+          <nuxeo-document-list-item selected$="{{selected}}" doc="[[item]]" index="[[index]]" on-navigate="_navigate">
           </nuxeo-document-list-item>
         </template>
       </nuxeo-data-list>

@@ -2,8 +2,6 @@
 
 <component name="org.nuxeo.web.ui.itests.resources.contrib">
 
-  <require>org.nuxeo.web.ui.resources</require>
-
   <extension target="org.nuxeo.ecm.platform.WebResources" point="resources">
     <resource name="nuxeo-itests.html" type="import">
       <uri>/ui/nuxeo-itests.html</uri>

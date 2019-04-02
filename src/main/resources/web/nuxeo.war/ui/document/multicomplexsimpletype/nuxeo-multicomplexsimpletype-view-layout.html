@@ -1,0 +1,29 @@
+<!--
+`nuxeo-multicomplexsimpletype-view-layout`
+@group Nuxeo UI
+@element nuxeo-multicomplexsimpletype-view-layout
+-->
+<dom-module id="nuxeo-multicomplexsimpletype-view-layout">
+  <template>
+    <style>
+      nuxeo-document-viewer {
+        @apply --paper-card;
+      }
+    </style>
+    <nuxeo-document-viewer role="widget" document="[[document]]"></nuxeo-document-viewer>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'nuxeo-multicomplexsimpletype-view-layout',
+      behaviors: [Nuxeo.LayoutBehavior],
+      properties: {
+
+        document: {
+          type: Object,
+        }
+
+      }
+    });
+  </script>
+</dom-module>

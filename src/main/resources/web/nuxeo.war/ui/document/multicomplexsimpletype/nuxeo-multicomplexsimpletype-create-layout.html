@@ -1,0 +1,47 @@
+<!--
+`nuxeo-multicomplexsimpletype-create-layout`
+@group Nuxeo UI
+@element nuxeo-multicomplexsimpletype-create-layout
+-->
+<dom-module id="nuxeo-multicomplexsimpletype-create-layout">
+  <template>
+    <style>
+      *[role=widget] {
+        padding: 5px;
+      }
+    </style>
+    <nuxeo-input role="widget" value="{{document.properties.dc:title}}" label="Title" type="text"></nuxeo-input>
+
+    <nuxeo-data-table role="widget" items="{{document.properties.ft4:ftest4}}" orderable="true" editable="true">
+      <nuxeo-data-table-column name="A String">
+        <template>
+          [[item.aString]]
+        </template>
+      </nuxeo-data-table-column>
+
+      <nuxeo-data-table-form>
+        <template>
+          <nuxeo-input value="{{item.aString}}" label="A String" type="text"></nuxeo-input>
+        </template>
+      </nuxeo-data-table-form>
+    </nuxeo-data-table>
+
+  </template>
+
+  <script>
+  Polymer({
+    is: 'nuxeo-multicomplexsimpletype-create-layout',
+    behaviors: [Nuxeo.LayoutBehavior],
+    properties: {
+
+      /**
+         * @doctype multicomplexSimpleType
+         */
+      document: {
+        type: Object,
+      },
+
+    }
+  });
+  </script>
+</dom-module>

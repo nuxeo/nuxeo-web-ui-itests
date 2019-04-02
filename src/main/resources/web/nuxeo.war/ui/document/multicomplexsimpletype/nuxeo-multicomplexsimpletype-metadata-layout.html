@@ -1,0 +1,50 @@
+<!--
+`nuxeo-multicomplexsimpletype-metadata-layout`
+@group Nuxeo UI
+@element nuxeo-multicomplexsimpletype-metadata-layout
+-->
+<dom-module id="nuxeo-multicomplexsimpletype-metadata-layout">
+  <template>
+    <style>
+      *[role=widget] {
+        padding: 5px;
+      }
+    </style>
+    <div role="widget">
+      <label>Title</label>
+      <div>[[document.properties.dc:title]]</div>
+    </div>
+
+    <nuxeo-data-table role="widget" items="{{document.properties.ft4:ftest4}}">
+<nuxeo-data-table-column name="A String">
+<template>
+[[item.aString]]
+</template>
+</nuxeo-data-table-column>
+
+<nuxeo-data-table-form>
+  <template>
+    <nuxeo-input value="{{item.aString}}" label="A String" type="text"></nuxeo-input>
+  </template>
+</nuxeo-data-table-form>
+</nuxeo-data-table>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'nuxeo-multicomplexsimpletype-metadata-layout',
+      behaviors: [Nuxeo.LayoutBehavior],
+      properties: {
+
+        /**
+         * @doctype multicomplexSimpleType
+         */
+        document: {
+          type: Object,
+        },
+
+      }
+    });
+  </script>
+</dom-module>
